@@ -39,7 +39,7 @@ import { fetchData } from "./utils";
 
 export const initializeSession = async () => {
   // Creates a new session
-  const data = await fetchData("session", "POST", undefined);
+  const data = await fetchData("session", "POST", {}, undefined);
   if (data) {
     localStorage.setItem("session", data.token);
   }

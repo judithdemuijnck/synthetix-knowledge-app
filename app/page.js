@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import styles from "./page.module.css";
 import { verifySession, initializeSession } from "@/app/lib/validateSession";
+import PopularFAQs from "./components/PopularFAQs";
 
 export default function Home() {
   const validateSession = async () => {
@@ -27,6 +28,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <h1>Welcome to Synthetix </h1>
+      <PopularFAQs />
     </main>
   );
 }

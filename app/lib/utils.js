@@ -1,9 +1,10 @@
 export async function fetchData(
   endpoint,
   method,
+  params = {},
   token = localStorage.getItem("session")
 ) {
-  const url = process.env.NEXT_PUBLIC_BASE_URL + endpoint;
+  let url = process.env.NEXT_PUBLIC_BASE_URL + endpoint;
   const options = {
     method,
     headers: {
@@ -16,6 +17,11 @@ export async function fetchData(
   if (token) {
     // Synthetix uses Bearer Tokens for Authorization
     options.headers["Authorization"] = "Bearer " + token;
+  }
+
+  if (method === "GET" && Object.keys(params).length > 0) {
+    const searchParams = new URLSearchParams(params).toString();
+    url = url + "?" + searchParams;
   }
 
   try {
