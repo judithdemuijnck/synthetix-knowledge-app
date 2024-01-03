@@ -2,6 +2,7 @@ export async function fetchData(
   endpoint,
   method,
   params = {},
+  body = {},
   token = localStorage.getItem("session")
 ) {
   let url = process.env.NEXT_PUBLIC_BASE_URL + endpoint;
@@ -11,6 +12,7 @@ export async function fetchData(
       // Talk to your Account Manager to obtain an Applicationkey and Consumerkey
       Applicationkey: process.env.NEXT_PUBLIC_APPLICATIONKEY,
       Consumerkey: process.env.NEXT_PUBLIC_CONSUMERKEY,
+      "Content-Type": "application/json",
     },
   };
 
@@ -24,11 +26,15 @@ export async function fetchData(
     url = url + "?" + searchParams;
   }
 
+  if (Object.keys(body).length > 0) {
+    options["body"] = JSON.stringify(body);
+  }
+
   try {
     const response = await fetch(url, options);
 
     if (!response.ok) {
-      console.log("Error with status", response.status);
+      console.error("Error with status", response.status);
       return null;
     }
 

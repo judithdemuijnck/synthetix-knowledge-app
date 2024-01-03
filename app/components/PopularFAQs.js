@@ -4,6 +4,7 @@ import { fetchData } from "../lib/utils";
 
 export default function PopularFAQs() {
   const [topFAQs, setTopFAQs] = useState();
+  const [loading, setLoading] = useState(true);
 
   const fetchFAQS = async () => {
     // all params are optional in this call
@@ -14,12 +15,12 @@ export default function PopularFAQs() {
     };
     const data = await fetchData("all_faqs", "GET", params);
     setTopFAQs(data.items);
-    console.log(data);
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchFAQS();
   }, []);
 
-  return <ArticleList faqs={topFAQs} />;
+  return <ArticleList faqs={topFAQs} loading={loading} />;
 }
