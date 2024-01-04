@@ -26,9 +26,11 @@ export default function Home() {
     return () => clearInterval(sessionValidationInterval);
   }, []);
 
+        // only run this after session has been validated
   return (
     <main className={styles.main}>
       <h1>Welcome to Synthetix </h1>
+
       <SearchBar />
       <PopularFAQs />
     </main>

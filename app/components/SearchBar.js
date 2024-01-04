@@ -31,7 +31,7 @@ export default function SearchBar({ query }) {
         <button
           className={`${styles.search_btn} material-symbols-outlined`}
           type="submit"
-          aria-label="Click here to search Synthetix knowledge base"
+          aria-label="Click here to search Synthetix knowledgebase"
         >
           search
         </button>

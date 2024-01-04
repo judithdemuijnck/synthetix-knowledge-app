@@ -6,7 +6,7 @@ export default function ArticleList({ faqs, loading }) {
     faqs?.map((faq) => {
       return (
         <div className={styles.description} key={faq.label}>
-          <Link href={"/" + faq.label}>{faq.question || faq.faq}</Link>
+          <Link href={"/articles/" + faq.label}>{faq.question || faq.faq}</Link>
         </div>
       );
     })
