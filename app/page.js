@@ -11,7 +11,7 @@ export default function Home() {
 
   const validateSession = async () => {
     // SESSION MANAGEMENT
-    // Verify the current session is still valid, or initialize a new session
+    // Verify the current session is still valid, or initialise a new session
     const storedToken = localStorage.getItem("session") || null;
 
     let token;
@@ -30,7 +30,6 @@ export default function Home() {
     return () => clearInterval(sessionValidationInterval);
   }, []);
 
-  // only run this after session has been validated
   return (
     <main className={styles.main}>
       <h1>Welcome to Synthetix </h1>

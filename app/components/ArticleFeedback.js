@@ -31,7 +31,7 @@ export default function ArticleFeedback({ label }) {
   const handleFeedback = async (event) => {
     const id = event.target.id;
     const answerId = id === "thumb_up" ? 3246 : 3247;
-    // each feedback question/ answer combination is represented by itw own unique id
+    // each feedback question/answer combination is represented by its own unique id
     // here, the answer 'thumb_up' to the question 'Was this article helpful?' is represented by 3246
     // the answer 'thumb_down' to the question 'Was this article helpful?' is represented by 3247
 
