@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). This is an unoffical web application to demo basic capabilities of the Synthetix Knowledge API.
 
-## Getting Started
+## Installation
 
-First, run the development server:
+You will need to have a package manager like npm or yarn installed.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Installing dependencies
+
+To install all dependencies, open this directory in a new shell and run the command
+`$ npm install`
+
+### Setting up environmental variables
+
+In the root directory, you will need to create a .env.local file with the following environmental variables:
+
+```
+NEXT_PUBLIC_APPLICATIONKEY={your application key}
+NEXT_PUBLIC_CONSUMERKEY={your consumer key}
+NEXT_PUBLIC_BASE_URL=https://api{environment}.synthetix.com/2.0/external/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can obtain your application and consumer key from your account manager.
+Beware that these are public environmental variables that will be explicitly embedded during build time. Your keys will be exposed if you share this application externally.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Run the application
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To start the application, open this directory in a new shell and run the command
+`$ npm run dev`
 
-## Learn More
+The application will be served from [http://localhost:3000](http://localhost:3000) by default.
 
-To learn more about Next.js, take a look at the following resources:
+## Using Synthetix Knowledge API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Creating a session

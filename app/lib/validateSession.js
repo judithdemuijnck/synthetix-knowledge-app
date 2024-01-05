@@ -5,8 +5,8 @@ export const initializeSession = async () => {
   const data = await fetchData("session", "POST", {}, {}, undefined);
   if (data) {
     localStorage.setItem("session", data.token);
+    return data.token;
   }
-  // else: redirect to error page, something must be wrong with appkey or consumkey
 };
 
 export const verifySession = async () => {
@@ -15,6 +15,8 @@ export const verifySession = async () => {
   if (!data || !data.ValidToken || data.Expired) {
     // Clear session data & initialize new session
     localStorage.removeItem("session");
-    await initializeSession();
+    return await initializeSession();
+  } else {
+    return localStorage.getItem("session");
   }
 };

@@ -21,7 +21,6 @@ export default function Page({ params }) {
 
     const data = await fetchData("article", "POST", {}, body);
     setArticle(data);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -37,8 +36,6 @@ export default function Page({ params }) {
   ) : (
     <h1>Loading...</h1>
   );
-
-  console.log(params);
 
   return <div className={styles.main}>{displayArticle}</div>;
 }
